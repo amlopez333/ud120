@@ -27,8 +27,13 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #########################################################
 ### your code goes here ###
 classifier = GaussianNB()
+time0 = time()
 trained = classifier.fit(features_train, labels_train)
+print time() - time0
+time1 = time()
 predict = trained.predict(features_test)
+time2 = time()
+print time2 - time1
 score = trained.score(features_test, labels_test)
 print score
 
