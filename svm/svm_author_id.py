@@ -26,21 +26,21 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+#features_train = features_train[:len(features_train)/100]
+#labels_train = labels_train[:len(labels_train)/100]
 classifier = SVC(C = 10000, kernel = 'rbf')
-time0 = time()
+#time0 = time()
 classifier = classifier.fit(features_train, labels_train)
-print time() - time0
-time0 = time()
+#print time() - time0
+#time0 = time()
 predictions = classifier.predict(features_test)
-print time() - time0
+#print time() - time0
 score = accuracy_score(predictions, labels_test)
 print score
-pred10 = predictions[10]
-pred26 = predictions[26]
-pred50 = predictions[50]
-print 'pred10: ', pred10
-print 'pred26: ', pred26
-print 'pred50: ', pred50
+chris = 0
+for i in predictions:
+    if(i):
+        chris += 1
+print chris
+print classifier.decision_function(features_train)   
 #########################################################
